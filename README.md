@@ -1,5 +1,5 @@
 # tempotron
-a spiking neural network module, tempotron for classification
+A spiking neural network module, tempotron for classification
 
 
 tempotron learning rule inspired by this thesis: 
