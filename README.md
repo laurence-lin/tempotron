@@ -38,7 +38,12 @@ V0為normalization function, 將kernel function值限制在 0 和 1 內。此式
 
 在膜電位觸發spiking後，neuron會進入一段時間的「不應期」，而potential會返回復位電壓V_rest。
 
-Spiking neuron的輸出只有「觸發」和「不觸發」兩種。若欲使用SNN輸出多類別: 1. 使用binary編碼，在output neuron上做binary decode產生十進位的output value.
+Spiking neuron的輸出只有「觸發」和「不觸發」兩種。若欲使用SNN輸出多類別: 1. 使用binary編碼，在output neuron上做binary decode產生十進位的output value. 舉例來說，可用五個output neuron表示二進位輸出。若輸出為00000代表1, 00010代表2. 
+
+在這個簡單的實現中，使用三個神經元代表三個類別。代表類別的神經元產生脈衝，則表示樣本為該類別。其它類別的輸出神經元則抑制。我們用這種方式訓練數量同等於類別個數的二元分類器，使SNN可分辨三種類別。
+
+Model training:
+若樣本為類別B，而輸出神經元A發出脈衝，連接此神經元A的synaptic weight需更新權重。training目標為仰制輸出神經元A的膜電位。反之則目標為增強輸出神經元的膜電位。
 
 
 
