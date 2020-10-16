@@ -46,6 +46,11 @@ Model training:
 若樣本為類別B，而輸出神經元A發出脈衝，連接此神經元A的synaptic weight需更新權重。training目標為仰制輸出神經元A的膜電位。反之則目標為增強輸出神經元的膜電位。
 
 
+Input encoding:
+SNN將輸入資訊視為神經脈衝，因此我們必須將numerical value編碼為時間單位的輸入刺激。這裡使用Gaussian function做為encoding function. 對於每一個輸入值x, 用N個gaussian neuron來編碼，輸出即為此input value所造成的input neuron spiking time. 假設一個input對上12個gaussian神經元，每個gaussian神經元皆為相隔一小段距離的gaussian函數。
+
+![image]
+
 
 
 
