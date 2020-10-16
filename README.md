@@ -26,7 +26,29 @@ V(t) = sigma( W_i * sigma(K(t - t_i)) ) + V_rest
 
 K: kernel function, value locate in [0, 1]. Output of K represents the contribution of spiking happend at t_i.
 
-The latest spiking occur in t_i, then the contribution of that spiking during current timestep t is K(t - t_i)
+The latest spiking occur in t_i, then the contribution of that spiking during current timestep t is K(t - t_i). Kernel function 
+
+K(t - t_i) is calculated by:
+
+![image]
+
+在此式中，spiking發生後，Kernel function 隨時間的前進而變小，spiking t_i的影響力隨時間遞減。tou_m 和 tou_s為超參數。
+
+V0為normalization function, 將kernel function值限制在 0 和 1 內。此式中 t_i 必小於 t，因為只有過去產生的spiking會對膜電位產生貢獻。
+
+在膜電位觸發spiking後，neuron會進入一段時間的「不應期」，而potential會返回復位電壓V_rest。
+
+Spiking neuron的輸出只有「觸發」和「不觸發」兩種。若欲使用SNN輸出多類別: 1. 使用binary編碼，在output neuron上做binary decode產生十進位的output value.
+
+
+
+
+
+
+
+
+
+
 
 
 
