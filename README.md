@@ -1,4 +1,4 @@
-# tempotron
+# Tempotron: A type of spiking neural network
 A spiking neural network module, tempotron for classification
 
 
